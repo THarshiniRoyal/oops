@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int n, sum = 0, number;
+    cout << "How many numbers do you want to add ";
+    cin >> n;
+    cout << "\nEnter numbers: ";
+    while (n > 0)
+    {
+        cin >> number;
+        sum += number;
+        n--;
+    }
+    cout << "\nSum is: " << sum << endl;
+    return 0;
+}
