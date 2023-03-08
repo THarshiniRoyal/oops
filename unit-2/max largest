@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+class largest 
+{
+    int a, b, m;
+public:
+    void setdata(int x, int y) 
+	{
+        a = x;
+        b = y;
+        m = (a > b) ? a : b;
+    }
+    friend void find_Max(largest l);
+};
+void find_Max(largest l) 
+{
+    cout << "Maximum number is " << l.m << endl;
+}
+int main()  
+{
+    int num1, num2;
+    largest l;
+    cout << "Enter the first number: ";
+    cin >> num1;
+    cout << "Enter the second number: ";
+    cin >> num2;
+    l.setdata(num1, num2);
+    find_Max(l);
+    return 0;
+}
