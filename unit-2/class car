@@ -1,0 +1,40 @@
+#include <iostream>
+#include <string>
+using namespace std;
+class Car 
+{
+  private:
+    static int numObjects; 
+    int id;
+    string name;
+    int marks;
+  public:
+    Car(int id, string name, int marks) 
+	{
+      this->id = id;
+      this->name = name;
+      this->marks = marks;
+      numObjects++; 
+    }
+    void print_info() 
+	{
+      cout << "Id of the Car: " << id << endl;
+      cout << "Name of the Car: " << name << endl;
+      cout << "Marks: " << marks << endl;
+    }
+    static int get_num_objects() 
+	{
+      return numObjects;
+    }
+};
+int Car::numObjects = 0; 
+int main() 
+{
+  Car car1(101, "Ferrari", 10);
+  Car car2(205, "Mercedes", 9);
+  car1.print_info();
+  cout << endl;
+  car2.print_info();
+  cout << endl << "No. of objects created in the class: " << Car::get_num_objects() << endl;
+  return 0;
+}
