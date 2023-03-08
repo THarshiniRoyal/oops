@@ -1,0 +1,50 @@
+#include <iostream>
+using namespace std;
+class Complex 
+{
+    int real, img;
+public:
+    Complex() { real = img = 0; }
+    Complex(int r, int i) { real = r; img = i; }
+    Complex operator +(Complex const &obj) 
+	{
+         Complex res;
+         res.real = real + obj.real;
+         res.img = img + obj.img;
+         return res;
+    }
+    Complex operator -(Complex const &obj) {
+         Complex res;
+         res.real = real - obj.real;
+         res.img = img - obj.img;
+         return res;
+    }
+    friend ostream& operator <<(ostream&, const Complex&);
+    friend istream& operator >>(istream&, Complex&);
+};
+ostream& operator <<(ostream& out, const Complex& c) 
+{
+    out << c.real << " + i" << c.img << endl;
+    return out;
+}
+istream& operator >>(istream& in, Complex& c) 
+{
+    cout << "Enter the real part: ";
+    in >> c.real;
+    cout << "Enter the imaginary part: ";
+    in >> c.img;
+    return in;
+}
+int main() 
+{
+    Complex c1, c2, res;
+    cout << "Enter the first complex number:\n";
+    cin >> c1;
+    cout << "Enter the second complex number:\n";
+    cin >> c2;
+    res = c1 + c2;
+    cout << "Result of addition:\n" << res;
+    res = c1 - c2;
+    cout << "Result of subtraction:\n" << res;
+    return 0;
+}
