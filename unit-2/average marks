@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    int marks[4], total = 0;
+    float average, percentage;
+    char grade;
+    cout << "Please enter the marks of four subjects: " << endl;
+    for (int i = 0; i < 4; i++)
+    {
+        cin >> marks[i];
+        total += marks[i];
+    }
+    average = total / 4.0;
+    percentage = (total / 400.0) * 100;
+    if (percentage >= 75)
+        grade = 'A';
+    else if (percentage >= 60)
+        grade = 'B';
+    else if (percentage >= 50)
+        grade = 'C';
+    else if (percentage >= 40)
+        grade = 'D';
+    else
+        grade = 'E';
+    cout << "Total marks = " << total << endl;
+    cout << "Average marks = " << average << endl;
+    cout << "Marks percentage = " << percentage << "%" << endl;
+    cout << "Grade = " << grade << endl;
+    return 0;
+}
